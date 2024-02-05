@@ -126,6 +126,9 @@ jobs:
           find dl -size -1024c -exec ls -l {} \;
           find dl -size -1024c -exec rm -f {} \;
 
+      - name: Check space usage
+        if: (!cancelled())
+        run: df -hT
       - name: Compile the OpenWrt
         id: compile
         run: |
