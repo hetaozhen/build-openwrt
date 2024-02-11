@@ -46,7 +46,7 @@ jobs:
         run: |
           docker rmi `docker images -q`
           [[ -n "${AGENT_TOOLSDIRECTORY}" ]] && sudo rm -rf "${AGENT_TOOLSDIRECTORY}"
-          sudo rm -rf /usr/share/dotnet /etc/apt/sources.list.d /etc/mysql /etc/php /opt/ghc /usr/local/lib/android 2>/dev/null
+          sudo rm -rf /usr/share/dotnet /etc/apt/sources.list.d /opt/hostedtoolcache /etc/mysql /etc/php /opt/ghc /usr/local/lib/android 2>/dev/null
           sudo -E apt-get -y update
           sudo -E apt-get -y purge azure-cli ghc* zulu* llvm* firefox google* dotnet* powershell openjdk* mongodb* moby* adoptoenjdk* mysql* php* snapd* || true
           sudo -E apt-get -y install $(curl -fsSL https://is.gd/depend_ubuntu2204_openwrt)
